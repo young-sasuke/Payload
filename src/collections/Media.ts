@@ -1,4 +1,6 @@
-import type { CollectionConfig } from 'payload'
+
+import type { CollectionConfig } from 'payload';
+import { compressImage } from '../Hooks/compressImage'; // Make sure this file exists
 
 export const Media: CollectionConfig = {
   slug: 'media',
@@ -9,8 +11,13 @@ export const Media: CollectionConfig = {
     {
       name: 'alt',
       type: 'text',
-      required: true,
+      required: false, // Optional, as per earlier discussion
     },
   ],
   upload: true,
-}
+  hooks: {
+    beforeChange: [compressImage],
+  },
+};
+
+export default Media;
