@@ -262,22 +262,26 @@ export const Tailors: CollectionConfig = {
       },
     },
     {
-      name: 'status',
-      type: 'select',
-      options: [
-        { label: 'Verified', value: 'verified' },
-        { label: 'Unverified', value: 'unverified' },
-      ],
-      defaultValue: 'unverified',
-      required: true,
+      name: 'fcm_token',
+      type: 'text',
       admin: {
-        position: 'sidebar', // Often good placement for status fields
+        readOnly: true, // or false if you want to allow manual input
+      },
+    },    
+    {
+      name: 'status',
+      type: 'text', // Change type to text
+      required: true,
+      defaultValue: 'unverified', // or whatever default value you want
+      admin: {
+        position: 'sidebar', // Good placement for status fields
         components: {
           // Assign your custom component to the Cell slot for the list view
           Cell: StatusToggle,
         },
       },
     },
+    
   ],
 };
 

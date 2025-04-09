@@ -204,7 +204,8 @@ export interface Tailor {
     | number
     | boolean
     | null;
-  status: 'verified' | 'unverified';
+  fcm_token?: string | null;
+  status: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -375,6 +376,7 @@ export interface TailorsSelect<T extends boolean = true> {
   boutique_items?: T;
   alterations?: T;
   tailorings?: T;
+  fcm_token?: T;
   status?: T;
   updatedAt?: T;
   createdAt?: T;
